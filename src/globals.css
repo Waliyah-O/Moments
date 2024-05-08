@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  * {
+    @apply yborder-border;
+  }
+  body {
+    @apply ybg-background ytext-foreground;
+  }
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -65,21 +81,6 @@
     --ring: 212.7 26.8% 83.9%;
   }
 }
-
-@layer base {
-  * {
-    @apply yborder-border;
-  }
-  body {
-    @apply ybg-background ytext-foreground;
-  }
-} */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   * {
@@ -327,7 +328,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-white !important;
+    @apply text-white pb-2 !important;
   }
 
   .shad-form_message {
@@ -335,7 +336,7 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 rounded-md p-4 !important;
   }
 
   .shad-textarea {
@@ -344,14 +345,14 @@
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 justify-center items-center h-12 py-2 px-4 rounded-md !important;
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 !important;
+    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 justify-center items-center py-2 rounded-sm !important;
   }
 
   .shad-button_ghost {
-    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white !important;
+    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white h-12 py-2 px-4 rounded-sm !important;
   }
 }
