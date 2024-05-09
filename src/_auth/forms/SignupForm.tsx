@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { createUserAccount } from "@/lib/appwrite/api";
 import {
   useCreateUserAccount,
   useSignInAccount,
@@ -22,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Loader from "@/components/ui/shared/Loader";
+import Loader from "@/components/shared/Loader";
 import { useToast } from "@/components/ui/use-toast";
 
 // library
@@ -36,10 +34,10 @@ const SignupForm = () => {
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   const navigate = useNavigate();
 
-  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } =
+  const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccount();
 
-  const { mutateAsync: signInAccount, isLoading: isSigningIn } =
+  const { mutateAsync: signInAccount, isPending: isSigningIn } =
     useSignInAccount();
 
   // 1. Define your form.
@@ -68,13 +66,14 @@ const SignupForm = () => {
       email: values.email,
       password: values.password,
     });
-    if (session) {
+    if (!session) {
       return toast({ title: "Sign in failed, please try again" });
     }
 
     const isLoggedIn = await checkAuthUser();
     if (isLoggedIn) {
       form.reset();
+
       navigate("/");
     } else {
       toast({ title: "Sign in failed, please try again" });
@@ -85,7 +84,7 @@ const SignupForm = () => {
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
         <img src="/assets/images/logo.svg" alt="logo" />
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
+        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-5">
           Create a new account
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
@@ -93,7 +92,7 @@ const SignupForm = () => {
         </p>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col gap-5 w-full mt-4"
+          className="flex flex-col gap-4 w-full mt-4"
         >
           <FormField
             control={form.control}
@@ -147,8 +146,8 @@ const SignupForm = () => {
               </FormItem>
             )}
           />
-          <Button className="shad-button_primary" type="submit">
-            {isCreatingUser ? (
+          <Button className="shad-button_primary mt-2" type="submit">
+            {isCreatingAccount ? (
               <div className="flex-center gap-2">
                 <Loader /> Loading...
               </div>

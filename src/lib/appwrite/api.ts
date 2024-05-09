@@ -66,7 +66,7 @@ export async function getCurrentUser() {
     const currentAccount = await account.get();
 
     if (!currentAccount) throw Error;
-    
+
     const currentUser = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
@@ -75,6 +75,15 @@ export async function getCurrentUser() {
 
     if (!currentUser) throw Error;
     return currentUser.documents[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function signOutAccount() {
+  try {
+    const session = await account.deleteSession("current");
+    return session;
   } catch (error) {
     console.log(error);
   }
