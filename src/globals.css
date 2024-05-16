@@ -328,7 +328,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-white pb-2 !important;
+    @apply text-white pb-2 mb-2 !important;
   }
 
   .shad-form_message {
@@ -336,11 +336,11 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 rounded-md p-4 !important;
+    @apply w-full h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 rounded-md p-4 !important;
   }
 
   .shad-textarea {
-    @apply h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply w-full p-4  h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
   }
 
   /* Button */
@@ -349,7 +349,7 @@
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 justify-center items-center py-2 rounded-sm !important;
+    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 justify-center items-center py-2 rounded-md !important;
   }
 
   .shad-button_ghost {

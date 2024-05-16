@@ -24,7 +24,7 @@ import Loader from "@/components/shared/Loader";
 import { useToast } from "@/components/ui/use-toast";
 
 // library
-import { signupValidation } from "@/lib/validation";
+import { SignUpValidation } from "@/lib/validation";
 
 // MEDIA
 import logo from "../../../assets/images/logo.svg";
@@ -41,8 +41,8 @@ const SignupForm = () => {
     useSignInAccount();
 
   // 1. Define your form.
-  const form = useForm<z.infer<typeof signupValidation>>({
-    resolver: zodResolver(signupValidation),
+  const form = useForm<z.infer<typeof SignUpValidation>>({
+    resolver: zodResolver(SignUpValidation),
     defaultValues: {
       name: "",
       username: "",
@@ -52,7 +52,7 @@ const SignupForm = () => {
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof signupValidation>) {
+  async function onSubmit(values: z.infer<typeof SignUpValidation>) {
     // create user
     const newUser = await createUserAccount(values);
     console.log(newUser);

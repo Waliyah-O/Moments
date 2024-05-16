@@ -22,7 +22,7 @@ import Loader from "@/components/shared/Loader";
 import { useToast } from "@/components/ui/use-toast";
 
 // library
-import { signinValidation } from "@/lib/validation";
+import { SignInValidation } from "@/lib/validation";
 
 // MEDIA
 import logo from "../../../assets/images/logo.svg";
@@ -36,8 +36,8 @@ const SigninForm = () => {
     useSignInAccount();
 
   // 1. Define your form.
-  const form = useForm<z.infer<typeof signinValidation>>({
-    resolver: zodResolver(signinValidation),
+  const form = useForm<z.infer<typeof SignInValidation>>({
+    resolver: zodResolver(SignInValidation),
     defaultValues: {
       email: "",
       password: "",
@@ -45,7 +45,7 @@ const SigninForm = () => {
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof signinValidation>) {
+  async function onSubmit(values: z.infer<typeof SignInValidation>) {
     const session = await signInAccount({
       email: values.email,
       password: values.password,

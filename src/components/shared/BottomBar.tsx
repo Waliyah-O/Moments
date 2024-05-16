@@ -16,7 +16,7 @@ const BottomBar = () => {
             to={link.route}
             // className=" group flex gap-4 items-center p-4"
             key={link.label}
-            className={`rounded-[10px] flex-center flex-col gap-1 py-2 px-4 transition ${
+            className={`rounded-[10px] flex-center gap-1 py-2 px-4 transition ${
               isActive && "bg-primary-500 "
             }`}
           >
