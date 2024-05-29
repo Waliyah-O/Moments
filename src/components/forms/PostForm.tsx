@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { useUserContext } from "@/context/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Spinner from "../shared/spinner/Spinner";
 
 type PostFormProps = {
   post?: Models.Document;
